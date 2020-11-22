@@ -1,19 +1,13 @@
-import React, {PureComponent} from 'react'
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import React, {useState} from 'react'
+import {createStackNavigator} from '@react-navigation/stack'
 import Home from '@screens/home'
-import Me from '@screens/me'
-import Contacts from '@screens/contacts'
 
-const Tab = createBottomTabNavigator()
+const HomeStack = createStackNavigator()
 
-const HomeNavigator = () => {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="home" component={Home}></Tab.Screen>
-      <Tab.Screen name="me" component={Me}></Tab.Screen>
-      <Tab.Screen name="contacts" component={Contacts}></Tab.Screen>
-    </Tab.Navigator>
-  )
-}
+const HomeNavigator = () => (
+  <HomeStack.Navigator mode={'modal'}>
+    <HomeStack.Screen name="Home" component={Home}></HomeStack.Screen>
+  </HomeStack.Navigator>
+)
 
 export default HomeNavigator

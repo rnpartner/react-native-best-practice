@@ -41,7 +41,12 @@
     "baseUrl": "." /* Base directory to resolve non-absolute module names. */,
     "paths": {
       "*": ["app/*"],
+      "@model/*": ["app/model/*"],
+      "@config/*": ["app/config/*"],
+      "@components/*": ["app/components/*"],
+      "@logic/*": ["app/logic/*"],
       "@navigations/*": ["app/navigations/*"],
+      "@public/*": ["app/public/*"],
       "@screens/*": ["app/screens/*"]
     } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */

@@ -1,13 +1,19 @@
 import React, {PureComponent} from 'react'
-import {NavigationContainer} from '@react-navigation/native'
-import {Text} from 'react-native'
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import Me from '@screens/me'
+import Contacts from '@screens/contacts'
 import HomeNavigator from '@navigations/home'
-import AuthNavigtor from '@navigations/auth'
 
-const App2 = () => (
-  <NavigationContainer>
-    {true ? <HomeNavigator></HomeNavigator> : <AuthNavigtor></AuthNavigtor>}
-  </NavigationContainer>
-)
+const Tab = createBottomTabNavigator()
 
-export default App2
+const MainNavigator = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="home" component={HomeNavigator}></Tab.Screen>
+      <Tab.Screen name="me" component={Me}></Tab.Screen>
+      <Tab.Screen name="contacts" component={Contacts}></Tab.Screen>
+    </Tab.Navigator>
+  )
+}
+
+export default MainNavigator

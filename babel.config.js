@@ -17,7 +17,12 @@ module.exports = {
           '.json',
         ],
         alias: {
+          '@config': './app/config',
+          '@components': './app/components',
+          '@logic': './app/logic',
+          '@model': './app/model',
           '@navigations': './app/navigations',
+          '@public': './app/public',
           '@screens': './app/screens',
         },
       },
