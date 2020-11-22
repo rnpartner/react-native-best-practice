@@ -1,7 +1,8 @@
 import '@ethersproject/shims';
-import {ethers, Wallet} from 'ethers';
 import '../../shim';
-import crypo from 'crypto';
+
+import {ProgressCallback} from 'ethers/lib/utils';
+import {Wallet} from 'ethers';
 import {randomBytes} from 'react-native-crypto';
 
 const secureEntropy = () => {
@@ -42,3 +43,13 @@ export const walletWithMnemonic = async (
 ) => {
   return Wallet.fromMnemonic(mnemoc, path);
 };
+
+export const encyptWallet = async (
+  wallet: Wallet,
+  password: string,
+  progress: ProgressCallback,
+) => {
+  return wallet.encrypt(password, progress);
+};
+
+export const saveWallet = async (walletName: string) => {};
