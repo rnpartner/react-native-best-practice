@@ -19,13 +19,15 @@ module.exports = {
         alias: {
           '@config': './app/config',
           '@components': './app/components',
+          '@libs': './app/libs/',
           '@logic': './app/logic',
           '@model': './app/model',
           '@navigations': './app/navigations',
           '@public': './app/public',
+          '@private': './app/__private/',
           '@screens': './app/screens',
         },
       },
     ],
   ],
-}
+};

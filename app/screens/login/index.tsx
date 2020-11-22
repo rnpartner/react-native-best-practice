@@ -1,13 +1,13 @@
-import React, {useState} from 'react'
-import {View, Text} from 'react-native'
-import {generateWallet} from '@logic/ether'
+import React, {useState} from 'react';
+import {View, Text} from 'react-native';
+import {generateWallet} from 'ether/wallet';
 const Login = () => {
-  generateWallet()
+  generateWallet();
   return (
     <View>
       <Text>登录页面</Text>
     </View>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
