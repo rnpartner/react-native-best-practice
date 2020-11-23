@@ -5,6 +5,7 @@ import React, {PureComponent} from 'react';
 import FocusAwareStatusBar from '@libs/react-navigation/FocusAwareStatusBar';
 import {ScrollView} from 'react-native-gesture-handler';
 import {screenContainerStyle} from '@resource/styles';
+import styles from './styles';
 
 const SettingCard = (props: CardProps | any) => {
   return (
@@ -33,11 +34,7 @@ const Me = () => (
             title="DK"
             rounded
             size="large"
-            containerStyle={{
-              backgroundColor: '#8ace70',
-              margin: 10,
-              padding: 3,
-            }}
+            containerStyle={styles.avatarContainer}
             source={{
               uri:
                 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png',

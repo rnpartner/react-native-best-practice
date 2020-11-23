@@ -1,14 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView, View} from 'react-native';
-import {queryAISBalance, queryEtherBalance} from 'works/ether/transaction';
+import {queryAISBalance, queryEtherBalance} from '@works/ether/transaction';
 
+import AssetsPage from './components/AssetsPage';
 import {Button} from 'react-native-elements';
-import FocusAwareStatusBar from 'libs/react-navigation/FocusAwareStatusBar';
+import EtherToken from '@model/token';
+import {FakeTokens} from '@works/FakeTokens';
+import FocusAwareStatusBar from '@libs/react-navigation/FocusAwareStatusBar';
+import MyWallet from '@model/wallet';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
 import {StackScreenProps} from '@react-navigation/stack';
 import styles from './styles';
+import {tokensTracking} from '@works/ether/balances';
 import {useNavigation} from '@react-navigation/native';
 
-const Assets = (props: StackScreenProps<{}>) => {
+interface Props {
+  wallets: MyWallet[];
+}
+
+const Assets = (props: Props) => {
+  const {wallets} = props;
   const navigation = useNavigation();
   useEffect(() => {}, [1]);
   return (
@@ -18,19 +29,8 @@ const Assets = (props: StackScreenProps<{}>) => {
         backgroundColor="transparent"
         barStyle="dark-content"
       />
-      <SafeAreaView>
-        <Button
-          onPress={async () => {
-            try {
-              const ether = await queryEtherBalance();
-              const ais = await queryAISBalance();
-              console.log('资产', ether, ais);
-            } catch (error) {
-              console.log('账户资产查询失败', error);
-            }
-          }}
-        />
-      </SafeAreaView>
+      <AssetsPage tokens={tokensTracking} />
+      {/* <ScrollableTabView>{wallets.map((token) => {})}</ScrollableTabView> */}
     </View>
   );
 };
