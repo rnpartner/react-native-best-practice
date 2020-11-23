@@ -1,15 +1,9 @@
-import {
-  Button,
-  NativeModules,
-  SafeAreaView,
-  StatusBar,
-  Text,
-  View,
-} from 'react-native';
 import React, {useEffect, useState} from 'react';
+import {SafeAreaView, View} from 'react-native';
+import {queryAISBalance, queryEtherBalance} from 'works/ether/transaction';
 
+import {Button} from 'react-native-elements';
 import FocusAwareStatusBar from 'libs/react-navigation/FocusAwareStatusBar';
-import {Header} from 'react-native-elements';
 import {StackScreenProps} from '@react-navigation/stack';
 import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
@@ -24,23 +18,21 @@ const Assets = (props: StackScreenProps<{}>) => {
         backgroundColor="transparent"
         barStyle="dark-content"
       />
-      <SafeAreaView></SafeAreaView>
+      <SafeAreaView>
+        <Button
+          onPress={async () => {
+            try {
+              const ether = await queryEtherBalance();
+              const ais = await queryAISBalance();
+              console.log('资产', ether, ais);
+            } catch (error) {
+              console.log('账户资产查询失败', error);
+            }
+          }}
+        />
+      </SafeAreaView>
     </View>
   );
-};
-
-const useTimeout = (time: Number) => {
-  const [isDone, setIsDone] = useState(false);
-  useEffect(() => {
-    const tim = setTimeout(() => {
-      console.log('已经过了：', time);
-      setIsDone(!isDone);
-    }, time);
-    return () => {
-      clearTimeout(tim);
-    };
-  });
-  return isDone;
 };
 
 export default Assets;

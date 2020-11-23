@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
-import {generateWallet} from 'ether/wallet';
+import {Text, View} from 'react-native';
+
 const Login = () => {
-  generateWallet();
   return (
     <View>
       <Text>登录页面</Text>

@@ -9,9 +9,8 @@ import {
 import React, {useEffect, useState} from 'react';
 
 import FocusAwareStatusBar from 'libs/react-navigation/FocusAwareStatusBar';
-import {Header} from 'react-native-elements';
 import {StackScreenProps} from '@react-navigation/stack';
-import styles from './styles/homeContainer';
+import styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 
 const {StatusBarManager} = NativeModules;
